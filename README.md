@@ -162,3 +162,6 @@ AIに愚痴を打つと「それは大変ですね。解決のためにご主人
 
 ### 10-3. キャッチアップ不足の懸念
 SPA（React等）の導入はMVP時点では見送り、Rails標準の機能（Hotwire等）に集中することで見積もりのブレを防ぎます。百人一首のデータ整備については、最初から100首すべてに細かなキーワードを設定するのではなく、MVP時点では代表的な30〜40首に絞ってマッチング精度を担保する方針を取ります。
+
+## 11. 画面遷移図
+Figma:https://www.figma.com/design/xefRXO7gUVxHPraPh5NuNq/UTAYORI%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=0-1&t=DdllgZS08hVi0JFD-1
