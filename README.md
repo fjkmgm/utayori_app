@@ -165,3 +165,6 @@ SPA（React等）の導入はMVP時点では見送り、Rails標準の機能（H
 
 ## 11. 画面遷移図
 Figma:https://www.figma.com/design/xefRXO7gUVxHPraPh5NuNq/UTAYORI%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=0-1&t=DdllgZS08hVi0JFD-1
+
+## 12. ER図
+https://dbdiagram.io/d/6adf56a6aac330141022b486
