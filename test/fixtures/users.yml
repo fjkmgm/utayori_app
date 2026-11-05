@@ -1,0 +1,11 @@
+one:
+  name: テストユーザー1
+  email: test1@example.com
+  crypted_password: <%= BCrypt::Password.create('password') %>
+  salt: secret_salt_123
+
+two:
+  name: テストユーザー2
+  email: test2@example.com
+  crypted_password: <%= BCrypt::Password.create('password') %>
+  salt: secret_salt_123
