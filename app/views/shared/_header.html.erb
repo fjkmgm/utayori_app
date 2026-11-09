@@ -4,7 +4,8 @@
 
     <nav class="space-x-4 flex items-center">
       <% if logged_in? %>
-        <span class="text-sm text-gray-600"><%= current_user.name %> さん</span>
+        <%= link_to '日記一覧', diaries_path, class: 'text-sm text-gray-600 hover:text-gray-900' %>
+        <%= link_to '日記を書く', new_diary_path, class: 'text-sm text-emerald-600 font-medium hover:text-emerald-700' %>
         <%= link_to 'マイページ', user_path(current_user), class: 'text-sm text-blue-600 hover:underline' %>
         <%= button_to 'ログアウト', logout_path, method: :delete, class: 'text-sm text-red-600 hover:underline cursor-pointer bg-transparent border-0' %>
       <% else %>
