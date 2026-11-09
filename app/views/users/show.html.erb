@@ -1,0 +1,21 @@
+<div class="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+  <h1 class="text-2xl font-bold mb-6 text-center text-gray-800">マイページ</h1>
+
+  <div class="space-y-4">
+    <div>
+      <label class="block text-sm font-medium text-gray-500">お名前</label>
+      <p class="mt-1 text-lg text-gray-800 font-semibold"><%= @user.name %></p>
+    </div>
+
+    <hr class="border-gray-200" />
+
+    <div>
+      <label class="block text-sm font-medium text-gray-500">メールアドレス</label>
+      <p class="mt-1 text-lg text-gray-800"><%= @user.email %></p>
+    </div>
+
+    <div class="pt-4 flex justify-center">
+      <%= link_to '編集する', edit_user_path(@user), class: 'w-full text-center bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2 px-4 rounded transition' %>
+    </div>
+  </div>
+</div>
