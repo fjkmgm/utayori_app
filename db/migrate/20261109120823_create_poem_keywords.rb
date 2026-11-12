@@ -7,6 +7,6 @@ class CreatePoemKeywords < ActiveRecord::Migration[8.1]
       t.timestamps
     end
 
-    add_index :poem_keywords, [:poem_id, :keyword_id], unique: true
+    add_index :poem_keywords, [ :poem_id, :keyword_id ], unique: true
   end
 end
