@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_11_09_022112) do
+ActiveRecord::Schema[8.1].define(version: 2026_11_09_120835) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -21,7 +21,38 @@ ActiveRecord::Schema[8.1].define(version: 2026_11_09_022112) do
     t.date "written_on", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "poem_id"
+    t.index ["poem_id"], name: "index_diaries_on_poem_id"
     t.index ["user_id"], name: "index_diaries_on_user_id"
+  end
+
+  create_table "keywords", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_keywords_on_name", unique: true
+  end
+
+  create_table "poem_keywords", force: :cascade do |t|
+    t.bigint "poem_id", null: false
+    t.bigint "keyword_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["keyword_id"], name: "index_poem_keywords_on_keyword_id"
+    t.index ["poem_id", "keyword_id"], name: "index_poem_keywords_on_poem_id_and_keyword_id", unique: true
+    t.index ["poem_id"], name: "index_poem_keywords_on_poem_id"
+  end
+
+  create_table "poems", force: :cascade do |t|
+    t.integer "number", null: false
+    t.string "kami_no_ku", null: false
+    t.string "shimo_no_ku", null: false
+    t.string "poet", null: false
+    t.text "translation", null: false
+    t.text "explanation", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["number"], name: "index_poems_on_number", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -34,5 +65,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_11_09_022112) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "diaries", "poems"
   add_foreign_key "diaries", "users"
+  add_foreign_key "poem_keywords", "keywords"
+  add_foreign_key "poem_keywords", "poems"
 end
