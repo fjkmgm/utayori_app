@@ -1,0 +1,49 @@
+<div class="max-w-3xl mx-auto">
+  <div class="mb-4">
+    <%= link_to '← 日記一覧に戻る', diaries_path, class: 'text-sm text-gray-600 hover:text-emerald-700' %>
+  </div>
+
+  <article class="bg-white p-8 rounded-lg shadow-sm border border-gray-100">
+    <div class="border-b border-gray-100 pb-4 mb-6">
+      <p class="text-xs text-gray-500 mb-1"><%= l @diary.written_on, format: :long %></p>
+      <h1 class="text-2xl font-bold text-gray-800"><%= @diary.title %></h1>
+    </div>
+
+    <div class="text-gray-700 whitespace-pre-wrap leading-relaxed text-base mb-8">
+      <%= @diary.body %>
+    </div>
+
+    <% if @diary.poem %>
+      <section class="bg-amber-50/70 p-6 rounded-lg border border-amber-200 text-amber-950">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs bg-amber-200 text-amber-900 px-2.5 py-1 rounded font-semibold">今日の一首</span>
+          <span class="text-xs text-amber-800">第<%= @diary.poem.number %>首 ・ <%= @diary.poem.poet %></span>
+        </div>
+
+        <div class="my-4 py-3 px-4 bg-white/80 rounded border border-amber-100">
+          <p class="font-serif text-lg font-medium tracking-wider text-gray-900 mb-1">
+            <%= @diary.poem.kami_no_ku %>
+          </p>
+          <p class="font-serif text-lg font-medium tracking-wider text-gray-900">
+            <%= @diary.poem.shimo_no_ku %>
+          </p>
+        </div>
+
+        <div class="space-y-3 text-sm mt-4">
+          <div>
+            <h2 class="text-xs font-bold text-amber-800 mb-1">現代語訳</h2>
+            <p class="text-gray-700 leading-relaxed"><%= @diary.poem.translation %></p>
+          </div>
+          <div>
+            <h2 class="text-xs font-bold text-amber-800 mb-1">解説</h2>
+            <p class="text-gray-700 leading-relaxed"><%= @diary.poem.explanation %></p>
+          </div>
+        </div>
+      </section>
+    <% else %>
+      <div class="bg-gray-50 p-4 rounded-md border border-gray-200 text-center text-xs text-gray-500">
+        この日記に紐づいた和歌はありません
+      </div>
+    <% end %>
+  </article>
+</div>
