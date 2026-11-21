@@ -1,7 +1,10 @@
-<div class="max-w-3xl mx-auto">
-  <div class="mb-4">
+<div class="mb-4 flex justify-between items-center">
     <%= link_to '← 日記一覧に戻る', diaries_path, class: 'text-sm text-gray-600 hover:text-emerald-700' %>
-  </div>
+    <div class="flex items-center space-x-3">
+      <%= link_to '編集する', edit_diary_path(@diary), class: 'px-3 py-1.5 bg-white border border-gray-300 rounded-md text-xs font-medium text-gray-700 hover:bg-gray-50 transition' %>
+      <%= button_to '削除する', diary_path(@diary), method: :delete, data: { turbo_confirm: '本当にこの日記を削除しますか？' }, class: 'px-3 py-1.5 bg-red-50 border border-red-200 rounded-md text-xs font-medium text-red-600 hover:bg-red-100 cursor-pointer transition' %>
+    </div>
+</div>
 
   <article class="bg-white p-8 rounded-lg shadow-sm border border-gray-100">
     <div class="border-b border-gray-100 pb-4 mb-6">
