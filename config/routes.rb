@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create show edit update]
   resources :diaries
+  resources :poems, only: %i[index]
 
   get "login", to: "user_sessions#new"
   post "login", to: "user_sessions#create"
