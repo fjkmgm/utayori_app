@@ -3,6 +3,7 @@
     <%= link_to 'UTAYORI', root_path, class: 'text-xl font-bold text-gray-800 hover:opacity-80' %>
 
     <nav class="space-x-4 flex items-center">
+    <%= link_to '百人一首一覧', poems_path, class: 'text-sm text-gray-600 hover:text-gray-900' %>
       <% if logged_in? %>
         <%= link_to '日記一覧', diaries_path, class: 'text-sm text-gray-600 hover:text-gray-900' %>
         <%= link_to '日記を書く', new_diary_path, class: 'text-sm text-emerald-600 font-medium hover:text-emerald-700' %>
