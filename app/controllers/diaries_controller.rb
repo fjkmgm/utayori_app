@@ -3,7 +3,7 @@ class DiariesController < ApplicationController
   before_action :set_diary, only: %i[show edit update destroy]
 
   def index
-    @diaries = current_user.diaries.order(written_on: :desc)
+    @diaries = current_user.diaries.includes(:poem).order(written_on: :desc)
   end
 
   def show; end
